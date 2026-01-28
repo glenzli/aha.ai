@@ -25,6 +25,10 @@
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
     "@tldraw/assets": "^4.3.0",
+    "consola": "^3.4.2",
+    "i18next": "^25.8.0",
+    "i18next-resources-to-backend": "^1.2.1",
+    "react-i18next": "^16.5.4",
     "tldraw": "^4.3.0"
   },
   "devDependencies": {
@@ -35,6 +39,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "antd": "^6.2.2",
     "electron": "^39.2.6",
     "electron-builder": "^26.0.12",
     "electron-vite": "^5.0.0",
