@@ -1,8 +1,8 @@
-import { defineConfig } from 'eslint/config'
-import tseslint from '@electron-toolkit/eslint-config-ts'
-import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier'
-import eslintPluginReact from 'eslint-plugin-react'
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
+import { defineConfig } from 'eslint/config';
+import tseslint from '@electron-toolkit/eslint-config-ts';
+import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier';
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import checkFile from 'eslint-plugin-check-file';
 
@@ -14,9 +14,9 @@ export default defineConfig(
   {
     settings: {
       react: {
-        version: 'detect'
-      }
-    }
+        version: 'detect',
+      },
+    },
   },
   {
     files: ['**/*.{ts,tsx}'],
@@ -29,7 +29,7 @@ export default defineConfig(
       ...eslintPluginReactHooks.configs.recommended.rules,
       ...eslintPluginReactRefresh.configs.vite.rules,
       '@typescript-eslint/semi': ['error', 'always'],
-      'semi': ['error', 'always'],
+      semi: ['error', 'always'],
       '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
       'comma-dangle': ['error', 'always-multiline'],
       // Naming conventions for symbols
@@ -81,14 +81,14 @@ export default defineConfig(
           'src/**/': 'SNAKE_CASE',
         },
       ],
-    }
+    },
   },
   {
     files: ['**/*.{js,jsx,cjs,mjs,cjsx,mjsx}'],
     rules: {
-      'semi': ['error', 'always'],
+      semi: ['error', 'always'],
       'comma-dangle': ['error', 'always-multiline'],
-    }
+    },
   },
   eslintConfigPrettier
-)
+);

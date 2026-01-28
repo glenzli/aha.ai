@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "Aha.AI",
+    "welcome": "Welcome to Aha.AI"
+  },
+  "ui": {
+    "button": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "delete": "Delete"
+    },
+    "label": {
+      "language": "Language",
+      "theme": "Theme"
+    }
+  },
+  "paper": {
+    "title": "Paper",
+    "author": "Author",
+    "abstract": "Abstract",
+    "published": "Published",
+    "search": "Search Papers"
+  }
+}

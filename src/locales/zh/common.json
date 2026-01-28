@@ -1,0 +1,25 @@
+{
+  "app": {
+    "title": "Aha.AI",
+    "welcome": "欢迎使用 Aha.AI"
+  },
+  "ui": {
+    "button": {
+      "save": "保存",
+      "cancel": "取消",
+      "confirm": "确认",
+      "delete": "删除"
+    },
+    "label": {
+      "language": "语言",
+      "theme": "主题"
+    }
+  },
+  "paper": {
+    "title": "论文",
+    "author": "作者",
+    "abstract": "摘要",
+    "published": "发表时间",
+    "search": "搜索论文"
+  }
+}
