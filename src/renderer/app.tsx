@@ -1,22 +1,15 @@
-import { Tldraw } from 'tldraw';
-import { getAssetUrls } from '@tldraw/assets/selfHosted';
+import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+import localeData from 'dayjs/plugin/localeData';
 import { AppLayout } from '../layout';
-import 'tldraw/tldraw.css';
+
+dayjs.extend(weekday);
+dayjs.extend(localeData);
 
 function App(): React.JSX.Element {
-  const assetUrls = getAssetUrls({ baseUrl: './tldraw-assets' });
-
   return (
     <div className="app">
-      <AppLayout
-        contentPanel={<Tldraw
-          assetUrls={assetUrls}
-          components={{
-            Toolbar: null,
-            StylePanel: null,
-          }}
-        />}
-      />
+      <AppLayout />
     </div>
   );
 }

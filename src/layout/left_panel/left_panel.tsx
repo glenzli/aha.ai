@@ -2,13 +2,18 @@ import { DeploymentUnitOutlined, GlobalOutlined } from "@ant-design/icons";
 import { ConfigProvider, Tabs } from "antd";
 import './left_panel.css';
 import { CrawlPanel } from "./craw_panel";
+import { Editor } from "tldraw";
 
 enum LeftPanelTab {
     KnowledgeBase = 'KnowledgeBase',
     Crawl = 'Crawl',
 }
 
-export function LeftPanel(): React.JSX.Element {
+export interface LeftPanelProps {
+    editor: Editor | null;
+}
+
+export function LeftPanel({ editor }: LeftPanelProps): React.JSX.Element {
     return <ConfigProvider theme={{
         components: {
             Tabs: {
@@ -27,7 +32,7 @@ export function LeftPanel(): React.JSX.Element {
                 key: LeftPanelTab.Crawl,
                 label: '',
                 icon: <GlobalOutlined className="tabicon" />,
-                children: <CrawlPanel />,
+                children: <CrawlPanel editor={editor} />,
             }
         ]} />
     </ConfigProvider>;

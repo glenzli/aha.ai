@@ -16,5 +16,5 @@ export interface IDateRange {
 
 export interface ICrawler {
   daily(range?: IDateRange): Promise<IAbstract[]>;
-  search(query: string, range?: IDateRange): Promise<IAbstract[]>;
+  search(keyword: string, range?: IDateRange): Promise<IAbstract[]>;
 }

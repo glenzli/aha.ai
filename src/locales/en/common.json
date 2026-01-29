@@ -22,5 +22,10 @@
     "abstract": "Abstract",
     "published": "Published",
     "search": "Search Papers"
+  },
+  "crawler": {
+    "type": {
+      "huggingface": "Hugging Face"
+    }
   }
 }

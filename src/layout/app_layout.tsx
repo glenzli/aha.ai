@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { Editor } from 'tldraw';
 import { Splitter } from 'antd';
 import { TitleBar } from './title_bar';
 import { LeftPanel } from './left_panel';
+import 'tldraw/tldraw.css';
+import { CanvasContent } from './canvas_content';
 
 interface BodyProps {
   contentPanel?: React.ReactNode;
@@ -15,12 +18,11 @@ const MIN_LEFT_PANEL_WIDTH = 240;
 const MIN_RIGHT_PANEL_WIDTH = 300;
 
 export function AppLayout({
-  contentPanel,
   rightPanel,
 }: BodyProps = {}): React.JSX.Element {
   const [leftWidth, setLeftWidth] = useState<number>(MIN_LEFT_PANEL_WIDTH);
-
   const [rightWidth, setRightWidth] = useState<number>(MIN_RIGHT_PANEL_WIDTH);
+  const [editor, setEditor] = useState<Editor | null>(null);
 
   const onResize = (sizes: number[]) => {
     if (sizes[0] !== undefined) {
@@ -31,6 +33,10 @@ export function AppLayout({
     }
   };
 
+  const onMount = useCallback((editor: Editor) => {
+    setEditor(editor);
+  }, []);
+
   return <Splitter style={{ height: '100%', width: '100%' }} orientation="vertical">
     <Splitter.Panel defaultSize={TITLE_BAR_HEIGHT} resizable={false} collapsible={false}>
       <TitleBar />
@@ -38,10 +44,10 @@ export function AppLayout({
     <Splitter.Panel>
       <Splitter onResize={onResize}>
         <Splitter.Panel size={leftWidth} min={MIN_LEFT_PANEL_WIDTH}>
-          <LeftPanel />
+          <LeftPanel editor={editor} />
         </Splitter.Panel>
         <Splitter.Panel>
-          {contentPanel}
+          <CanvasContent onMount={onMount}/>
         </Splitter.Panel>
         <Splitter.Panel size={rightWidth} min={MIN_RIGHT_PANEL_WIDTH}>
           {rightPanel}

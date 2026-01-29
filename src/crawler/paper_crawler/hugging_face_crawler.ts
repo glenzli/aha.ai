@@ -42,9 +42,9 @@ export class HuggingFaceCrawler implements ICrawler {
     return raws.map((raw) => this.transform(raw));
   }
 
-  public async search(query: string, range?: IDateRange): Promise<IAbstract[]> {
+  public async search(keyword: string, range?: IDateRange): Promise<IAbstract[]> {
     const raws = await this.fetchAll(
-      `${this.apiBaseUrl}${this.searchEndpoint}?q=${encodeURIComponent(query)}`,
+      `${this.apiBaseUrl}${this.searchEndpoint}?q=${encodeURIComponent(keyword)}`,
       range
     );
     return raws.map((raw) => this.transform(raw));

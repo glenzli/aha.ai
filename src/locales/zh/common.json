@@ -22,5 +22,10 @@
     "abstract": "摘要",
     "published": "发表时间",
     "search": "搜索论文"
+  },
+  "crawler": {
+    "type": {
+      "huggingface": "Hugging Face"
+    }
   }
 }
