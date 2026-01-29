@@ -1,0 +1,22 @@
+.titlebar {
+  height: 100%;
+  display: grid;
+  grid-template-columns: env(titlebar-area-x, 0) 1fr calc(100% - env(titlebar-area-x, 100%) - env(titlebar-area-width, 100%));
+  -webkit-app-region: drag;
+
+  .content-region {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+  }
+
+  .control {
+    flex: none;
+    -webkit-app-region: no-drag;
+  }
+
+  .space {
+    flex: 1;
+  }
+}

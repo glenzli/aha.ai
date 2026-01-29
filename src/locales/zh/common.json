@@ -16,6 +16,7 @@
     }
   },
   "paper": {
+    "daily": "最新论文",
     "title": "论文",
     "author": "作者",
     "abstract": "摘要",

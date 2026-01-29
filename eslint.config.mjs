@@ -25,6 +25,7 @@ export default defineConfig(
       'react-refresh': eslintPluginReactRefresh,
       'check-file': checkFile,
     },
+    extends: ['./.eslintrc-auto-import.json'],
     rules: {
       ...eslintPluginReactHooks.configs.recommended.rules,
       ...eslintPluginReactRefresh.configs.vite.rules,

@@ -1,0 +1,10 @@
+.language-menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.language-menu-item-check {
+  display: inline-block;
+  width: 16px;
+  margin-right: 8px;
+}

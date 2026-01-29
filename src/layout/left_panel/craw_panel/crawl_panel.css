@@ -1,0 +1,25 @@
+.crawl-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 10px;
+}
+
+.crawl-item {
+    width: 90%;
+    user-select: none;
+}
+
+.crawl-button-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.crawl-button-padding {
+    flex: 1;
+}
+
+.crawl-icon {
+    margin-right: 5px;
+}

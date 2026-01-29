@@ -16,6 +16,7 @@
     }
   },
   "paper": {
+    "daily": "Daily Papers",
     "title": "Paper",
     "author": "Author",
     "abstract": "Abstract",

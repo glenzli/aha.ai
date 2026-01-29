@@ -1,7 +1,6 @@
 import consola from 'consola';
-import { IAbstract, IDateRange } from '../crawler.interface';
+import { IAbstract, ICrawler, IDateRange } from '../crawler.interface';
 import { IPaperAbstract } from './paper_crawler.interface';
-import { BaseCrawler } from '../base_crawler';
 
 /**
  * HuggingFace API 响应数据接口
@@ -33,7 +32,7 @@ interface HFPaperResponse {
  * HuggingFace Fetcher 实现类
  * 专门用于从 HuggingFace 获取论文信息
  */
-export class HuggingFaceCrawler extends BaseCrawler {
+export class HuggingFaceCrawler implements ICrawler {
   private readonly apiBaseUrl = 'https://huggingface.co/api';
   private readonly searchEndpoint = '/papers/search';
   private readonly dailyPaperEndpoint = '/daily_papers';
