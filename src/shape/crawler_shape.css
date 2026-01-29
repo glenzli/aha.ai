@@ -1,16 +1,17 @@
 .crawler-shape {
-    padding: 8px;
-    border: 1px solid #ccc;
-    box-shadow: '0 4px 6px rgba(0,0,0,0.1)';
-    border-radius: 12px;
-    background: #fff;
+    padding: 8px 15px 15px 12px;
+    text-wrap: none;
 
     .icon {
-        font-size: 24px;
+        font-size: 58px;
     }
 
     .title {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
+    }
+
+    .tag {
+        font-family: Yozai, sans-serif;
     }
 }

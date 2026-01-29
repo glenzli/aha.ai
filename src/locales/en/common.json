@@ -27,5 +27,16 @@
     "type": {
       "huggingface": "Hugging Face"
     }
+  },
+  "date": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "monday": "Mon",
+    "tuesday": "Tue",
+    "wednesday": "Wed",
+    "thursday": "Thu",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday": "Sun"
   }
 }

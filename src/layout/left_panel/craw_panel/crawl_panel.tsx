@@ -6,6 +6,7 @@ import { Editor } from 'tldraw';
 import { ShapeType } from '../../../shape';
 import { CreateCrawlModal } from './create_crawl_modal';
 import { CRAWLER_ICONS } from './crawler_icons';
+import { compileDateExpr } from './date_expr';
 
 export interface CrawlPanelProps {
     editor: Editor | null;
@@ -28,11 +29,9 @@ export function CrawlPanel({ editor }: CrawlPanelProps): React.JSX.Element {
             type: ShapeType.Crawler as const,
             props: {
                 type,
-                range: range ? {
-                    start: range.start?.getTime(),
-                    end: range.end?.getTime(),
-                } : null,
-                keyword: keyword || '',
+                dateExpr: compileDateExpr(range),
+                keyword,
+                fill: 'semi',
             }
         })
     };
