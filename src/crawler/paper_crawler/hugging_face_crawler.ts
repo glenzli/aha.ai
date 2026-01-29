@@ -96,6 +96,7 @@ export class HuggingFaceCrawler implements ICrawler {
     return {
       title: paper.title.trim(),
       authors: this.extractAuthors(paper.paper.authors),
+      organization: paper.organization?.name,
       publishedAt: new Date(paper.publishedAt),
       summary: paper.summary.trim(),
       url: this.constructPDFUrl(paper.paper.id),
