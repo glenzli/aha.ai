@@ -1,12 +1,12 @@
-/** 统一信息接口 */
-export interface IAbstract {
+export interface IContextSeed {
   title: string;
   authors: string[];
   organization?: string;
-  publishedAt: Date;
+  publishedAt: string;
   summary: string;
   url: string;
   likes?: number;
+  hot?: boolean;
 }
 
 export interface IDateRange {
@@ -15,6 +15,6 @@ export interface IDateRange {
 }
 
 export interface ICrawler {
-  daily(range?: IDateRange): Promise<IAbstract[]>;
-  search(keyword: string, range?: IDateRange): Promise<IAbstract[]>;
+  daily(range?: IDateRange): Promise<IContextSeed[]>;
+  search(keyword: string, range?: IDateRange): Promise<IContextSeed[]>;
 }

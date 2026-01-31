@@ -1,0 +1,17 @@
+.seed-shape {
+    padding: 10px 12px 32px 12px;
+    width: 1px;
+    min-width: min-content;
+
+    .title {
+        white-space: nowrap;
+        font-weight: bold;
+        padding-left: 0.5em;
+    }
+
+    .summary {
+        opacity: 0.8;
+        font-weight: lighter;
+        text-indent: 2em;
+    }
+}

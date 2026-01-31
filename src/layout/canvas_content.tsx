@@ -1,5 +1,5 @@
 import { getAssetUrls } from "@tldraw/assets/selfHosted";
-import { CUSTOM_SHAPES } from "../shape";
+import { CUSTOM_SHAPES } from "../canvas";
 import { Editor, Tldraw } from "tldraw";
 
 export interface CanvasContentProps {

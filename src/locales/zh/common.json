@@ -26,7 +26,8 @@
   "crawler": {
     "type": {
       "huggingface": "Hugging Face"
-    }
+    },
+    "all": "所有主题"
   },
   "date": {
     "today": "今天",

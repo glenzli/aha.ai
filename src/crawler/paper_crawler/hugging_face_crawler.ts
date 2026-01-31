@@ -1,6 +1,6 @@
 import consola from 'consola';
-import { IAbstract, ICrawler, IDateRange } from '../crawler.interface';
-import { IPaperAbstract } from './paper_crawler.interface';
+import { IContextSeed, ICrawler, IDateRange } from '../crawler.interface';
+import { IPaperSeed } from './paper_crawler.interface';
 
 /**
  * HuggingFace API 响应数据接口
@@ -15,9 +15,6 @@ interface HFPaperResponse {
     githubRepo?: string;
     ai_summary?: string;
     ai_keywords?: string[];
-    organization?: {
-      name: string;
-    };
   };
   publishedAt: string;
   title: string;
@@ -25,6 +22,7 @@ interface HFPaperResponse {
   thumbnail?: string;
   organization?: {
     name: string;
+    fullname?: string;
   };
 }
 
@@ -37,12 +35,12 @@ export class HuggingFaceCrawler implements ICrawler {
   private readonly searchEndpoint = '/papers/search';
   private readonly dailyPaperEndpoint = '/daily_papers';
 
-  public async daily(range?: IDateRange): Promise<IAbstract[]> {
+  public async daily(range?: IDateRange): Promise<IContextSeed[]> {
     const raws = await this.fetchAll(`${this.apiBaseUrl}${this.dailyPaperEndpoint}`, range);
     return raws.map((raw) => this.transform(raw));
   }
 
-  public async search(keyword: string, range?: IDateRange): Promise<IAbstract[]> {
+  public async search(keyword: string, range?: IDateRange): Promise<IContextSeed[]> {
     const raws = await this.fetchAll(
       `${this.apiBaseUrl}${this.searchEndpoint}?q=${encodeURIComponent(keyword)}`,
       range
@@ -92,17 +90,18 @@ export class HuggingFaceCrawler implements ICrawler {
   /**
    * 转换原始数据为统一格式 - 实现父类抽象方法
    */
-  private transform(paper: HFPaperResponse): IPaperAbstract {
+  private transform(paper: HFPaperResponse): IPaperSeed {
     return {
       title: paper.title.trim(),
       authors: this.extractAuthors(paper.paper.authors),
-      organization: paper.organization?.name,
-      publishedAt: new Date(paper.publishedAt),
+      organization: paper.organization?.fullname ?? paper.organization?.name,
+      publishedAt: paper.publishedAt,
       summary: paper.summary.trim(),
       url: this.constructPDFUrl(paper.paper.id),
       likes: paper.paper.upvotes ?? 0,
       id: paper.paper.id,
       repoUrl: paper.paper.githubRepo,
+      hot: !!paper.paper.upvotes && paper.paper.upvotes > 20,
     };
   }
 

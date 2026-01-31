@@ -1,6 +1,6 @@
-import { IAbstract } from '../crawler.interface';
+import { IContextSeed } from '../crawler.interface';
 
-export interface IPaperAbstract extends IAbstract {
+export interface IPaperSeed extends IContextSeed {
   id: string;
   repoUrl?: string;
 }

@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isYesterday from 'dayjs/plugin/isYesterday';
-import { IDateRange } from "../../../crawler";
+import { IDateRange } from "../../crawler";
 
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);

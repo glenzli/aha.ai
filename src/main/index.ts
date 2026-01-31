@@ -2,12 +2,19 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
+import windowStateKeeper from 'electron-window-state';
 
 function createWindow(): void {
+  const windowState = windowStateKeeper({
+    defaultWidth: 1000,
+    defaultHeight: 800,
+  });
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    x: windowState.x,
+    y: windowState.y,
+    width: windowState.width,
+    height: windowState.height,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -24,6 +31,7 @@ function createWindow(): void {
       contextIsolation: true,
     },
   });
+  windowState.manage(mainWindow);
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show();

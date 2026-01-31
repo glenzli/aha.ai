@@ -26,7 +26,8 @@
   "crawler": {
     "type": {
       "huggingface": "Hugging Face"
-    }
+    },
+    "all": "All Topics"
   },
   "date": {
     "today": "Today",
